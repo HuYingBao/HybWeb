@@ -1,6 +1,3 @@
-/**
- * Created by ljf on 2016/1/20 0020.
- */
 var crypto = require('crypto'),
     moment = require('moment')
 module.exports = {

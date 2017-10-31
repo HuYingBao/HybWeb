@@ -1,6 +1,3 @@
-/**
- * Created by ljf on 5/15.
- */
 var qiniu = require("qiniu");
 qiniu.conf.ACCESS_KEY = sails.config.linkedin.q_ak;
 qiniu.conf.SECRET_KEY = sails.config.linkedin.q_sk;
