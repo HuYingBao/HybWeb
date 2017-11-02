@@ -43,7 +43,7 @@ module.exports = {
                         radius: radius,
                         region: region,
                         productType: productType,
-                        contenType: contentType,
+                        contentType: contentType,
                         content: content,
                         tag: tag,
                         img: img,
@@ -82,8 +82,9 @@ module.exports = {
                         async.map(shopBaiduList.contents,
                             function (itemShopBaidu, callback) {
                                 Shop.findOne({code: itemShopBaidu.code, status: 0}).exec(function (err, shop) {
-                                    if (shop)
+                                    if (shop){
                                         callback(null, shop);
+                                    }
                                     else {
                                         callback(null);
                                     }
@@ -97,7 +98,8 @@ module.exports = {
 
                     //获取店铺中的人
                     function getReceivers(shopList, callback) {
-                        async.map(shopList,
+                        async.map(
+                            shopList,
                             function (itemShop, callback) {
                                 if (itemShop) {
                                     User.find({shopId: itemShop.shopId, status: 0}).exec(function (err, userList) {
@@ -113,7 +115,7 @@ module.exports = {
                         );
                     }
 
-                    // TODO 需要排除百度chinnalId为空的用户,此处需要优化
+                    // TODO 需要排除百度channelId为空的用户,此处需要优化
                     function getFormatReceivers(userAllList, callback) {
                         var list1 = [];
                         var channelIOSList = [];
@@ -137,7 +139,7 @@ module.exports = {
                                 userList: list1,
                                 channelIOSList: channelIOSList,
                                 channelAndroidList: channelAndroidList
-                            }
+                            };
                             callback(null, result);
                         } catch (err) {
                             callback(null, err);
@@ -145,7 +147,7 @@ module.exports = {
                     }
                 },
                 //发送消息到shop
-                seveMsgToShop: ['msgFromUserCreate', 'receiverList', function (callback, results) {
+                saveMsgToShop: ['msgFromUserCreate', 'receiverList', function (callback, results) {
                     var msg = {
                         title: '推送',
                         description: '推送',

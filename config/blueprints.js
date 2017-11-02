@@ -132,10 +132,8 @@ module.exports.blueprints = {
      *                                                                          *
      * Whether the blueprint controllers should populate model fetches with     *
      * data from other models which are linked by associations                  *
-     * 蓝图控制器是否应填充模型,用与其他模型通过关联连接到一起的数据            *
      * If you have a lot of data in one-to-many associations, leaving this on   *
      * may result in very heavy api calls                                       *
-     * 如果有很多一对多的管理数据,这可能会造成回调数据太大                      *
      ***************************************************************************/
 
     populate: false,

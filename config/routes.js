@@ -73,6 +73,9 @@ module.exports.routes = {
 
     /**
      * 店员获取接收的信息
+     * @param userId
+     * @param skip
+     * @param limit
      */
     'GET /msgToShop/getReceiveMessage': [
         {policy: 'isAuth'},
