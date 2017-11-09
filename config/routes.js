@@ -81,6 +81,20 @@ module.exports.routes = {
         {policy: 'isAuth'},
         {policy: 'queryByUser'},
         {blueprint: 'find', model: 'msgtoshop', populate: true}
+    ],
+    /**
+     * TEST-获取商品列表
+     */
+    'GET /test/getProductList': [
+        {blueprint: 'find', model: 'product', populate: true}
+    ],
+
+    /**
+     * TEST-获取店铺信息
+     * @param shopId
+     */
+    'GET /test/getShop/:id': [
+        {blueprint: 'findone', model: 'shop', populate: false}
     ]
 };
 
